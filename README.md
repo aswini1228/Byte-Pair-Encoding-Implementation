@@ -25,53 +25,26 @@ Custom-BPE-Tokenizer/
 │── corpus.txt
 │── BPE_From_Scratch.ipynb
 │── README.md
-🔄 Algorithm Workflow
-                ┌───────────────┐
-                │     Start     │
-                └───────┬───────┘
-                        │
-                        ▼
-              Read Text Corpus
-                        │
-                        ▼
-              Preprocess the Text
-                        │
-                        ▼
-        Character-Level Tokenization
-                        │
-                        ▼
-         Build Initial Vocabulary
-                        │
-                        ▼
-       Count Adjacent Symbol Pairs
-                        │
-                        ▼
-      Select Most Frequent Pair
-                        │
-                        ▼
-          Merge Symbol Pair
-                        │
-                        ▼
-          Update Vocabulary
-                        │
-                        ▼
-          Repeat Until Done
-                        │
-                        ▼
-        Generate Merge Rules
-                        │
-                        ▼
-        Build Final Vocabulary
-                        │
-                        ▼
-            Encode New Words
-                        │
-                        ▼
-            Decode Tokens
-                        │
-                        ▼
-                ┌───────────────┐
-                │      End      │
+## 🔄 Algorithm Workflow
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Read Text Corpus]
+    B --> C[Preprocess Text]
+    C --> D[Character-Level Tokenization]
+    D --> E[Build Initial Vocabulary]
+    E --> F[Count Adjacent Symbol Pairs]
+    F --> G[Select Most Frequent Pair]
+    G --> H[Merge Symbol Pair]
+    H --> I[Update Vocabulary]
+    I --> J{More Merges?}
+    J -- Yes --> F
+    J -- No --> K[Generate Merge Rules]
+    K --> L[Build Final Vocabulary]
+    L --> M[Encode New Words]
+    M --> N[Decode Tokens]
+    N --> O([End])
+```
                 └───────────────┘
 🎓 Learning Outcome
 
